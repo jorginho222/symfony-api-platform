@@ -7,7 +7,7 @@ namespace App\Entity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Uid\Uuid;
 
-abstract class User implements UserInterface
+class User implements UserInterface
 {
     private string $id;
     private string $name;

@@ -10,7 +10,6 @@
         <field name="token" length="100" nullable="true" />
         <field name="active" type="boolean" length="100" nullable="true" />
         <field name="resetPasswordToken" length="100" nullable="true" />
-        <field name="resetPasswordToken" length="100" nullable="true" />
         <field name="createdAt" type="datetime" />
         <field name="updatedAt" length="100" />
 
