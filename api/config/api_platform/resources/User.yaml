@@ -1,0 +1,20 @@
+App\Entity\User:
+  attributes:
+    # encargado de la lectura del recurso
+    normalization_context:
+      groups: [user_read]
+  collectionOperations:
+    register:
+      method: POST
+      path: /users/register
+      # llamamos al met invoke de este controller
+      controller: App\Api\Action\User\Register
+      denormalization_context:
+        groups: [user_post]
+      # para la interf grafica de swagger
+      openapi_context:
+        summary: Register a new user
+  itemOperations:
+    get:
+      method: GET
+
