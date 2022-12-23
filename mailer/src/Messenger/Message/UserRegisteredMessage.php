@@ -48,4 +48,6 @@ class UserRegisteredMessage
     {
         return $this->token;
     }
+
+
 }

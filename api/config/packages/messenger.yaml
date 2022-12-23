@@ -9,7 +9,7 @@ framework:
             amqp_user:
                 dsn: '%env(string:MESSENGER_TRANSPORT_DSN)%'
                 options:
-                    v-host: '%env(string:MESSENGER_VHOST)%'
+                    vhost: '%env(string:MESSENGER_VHOST)%'
                     exchange:
                         name: '%env(string:MESSENGER_EXCHANGE)%'
                         type: direct
