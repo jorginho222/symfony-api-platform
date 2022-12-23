@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Messenger\Message;
+namespace Mailer\Messenger\Message;
 
 class UserRegisteredMessage
 {
@@ -48,4 +48,6 @@ class UserRegisteredMessage
     {
         return $this->token;
     }
+
+
 }
