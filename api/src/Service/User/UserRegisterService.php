@@ -4,7 +4,7 @@ namespace App\Service\User;
 
 use App\Entity\User;
 use App\Exception\User\UserAlreadyExistException;
-use App\Messenger\Message\RoutingKey;
+use App\Messenger\RoutingKey;
 use App\Messenger\Message\UserRegisteredMessage;
 use App\Repository\UserRepository;
 use App\Service\Password\EncoderService;
