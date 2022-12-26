@@ -11,6 +11,7 @@ use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 class UserRegisteredMessageHandler implements MessageHandlerInterface
 {
     private MailerService $mailerService;
+    // global variable $host
     private string $host;
 
     public function __construct(MailerService $mailerService, string $host)

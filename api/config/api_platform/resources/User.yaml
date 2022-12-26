@@ -14,6 +14,24 @@ App\Entity\User:
       # para la interf grafica de swagger
       openapi_context:
         summary: Register a new user
+
+    resend_activation_email:
+      method: POST
+      path: /users/resend_activation_email
+      controller: App\Api\Action\User\ResendActivationEmail
+      openapi_context:
+        summary: Sends activation email to inactive user
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    message:
+                      type: string
+
   itemOperations:
     get:
       method: GET

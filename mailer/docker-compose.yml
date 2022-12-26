@@ -8,7 +8,8 @@ services:
       args:
         UID: $U_ID
     environment:
-      XDEBUG_CLIENT_HOST: 192.168.0.1
+#      XDEBUG_CLIENT_HOST: 192.168.0.1 # home
+      XDEBUG_CLIENT_HOST: 172.20.128.1  # mbp
       XDEBUG_CLIENT_PORT: 9003
       PHP_IDE_CONFIG: serverName=Docker
     volumes:
