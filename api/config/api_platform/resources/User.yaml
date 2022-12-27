@@ -18,6 +18,7 @@ App\Entity\User:
       method: POST
       path: /users/resend_activation_email
       controller: App\Api\Action\User\ResendActivationEmail
+      deserialize: false
       openapi_context:
         summary: Sends activation email to inactive user
         requestBody:
@@ -42,4 +43,12 @@ App\Entity\User:
   itemOperations:
     get:
       method: GET
-
+    activate:
+      method: PUT
+      path: /users/{id}/activate
+      controller: App\Api\Action\User\ActivateAccount
+      deserialize: false
+      denormalization_context:
+        groups: [user_activate]
+      openapi_context:
+        summary: Activates a user
