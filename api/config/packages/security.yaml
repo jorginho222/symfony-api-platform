@@ -15,7 +15,8 @@ security:
         register:
             pattern: ^/api/v1/users/register
             methods: [POST]
-            security: false # En estos casos es una excepcion, no va a requerir auth para entrar a estas uri
+            # En estos casos es una excepcion, no va a requerir auth para entrar a estas uri
+            security: false
         resend_activation_email:
             pattern: ^/api/v1/users/resend_activation_email
             methods: [POST]
@@ -26,8 +27,8 @@ security:
             security: false
         login:
             pattern: /api/v1/users/login
-            stateless: true # No se va a guardar la sesion
-#            anonymous: true
+            # No se va a guardar la sesion
+            stateless: true
             provider: user_provider
             json_login:
               check_path: /api/v1/users/login_check

@@ -16,7 +16,7 @@ class ActivateAccountService
         $this->userRepository = $userRepository;
     }
 
-    public function activate(Request $request, $id): User
+    public function activate(Request $request, string $id): User
     {
         $user = $this->userRepository->findOneInactiveByIdAndTokenOrFail(
             $id,
