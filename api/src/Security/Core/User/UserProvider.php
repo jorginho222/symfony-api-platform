@@ -8,7 +8,6 @@ use App\Entity\User;
 use App\Exception\User\UserNotFoundException;
 use App\Repository\UserRepository;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
@@ -27,7 +26,7 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
         try {
             return $this->userRepository->findOneByEmailOrFail($username);
         } catch (UserNotFoundException $e) {
-            throw new UsernameNotFoundException(\sprintf('User %s not found', $username));
+            throw new \Symfony\Component\Security\Core\Exception\UserNotFoundException(\sprintf('User %s not found', $username));
         }
     }
 
