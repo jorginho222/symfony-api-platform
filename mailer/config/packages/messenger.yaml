@@ -32,3 +32,4 @@ framework:
         routing:
             # Route your messages to the transports
             'Mailer\Messenger\Message\UserRegisteredMessage': amqp_user
+            'Mailer\Messenger\Message\RequestResetPasswordMessage': amqp_user
