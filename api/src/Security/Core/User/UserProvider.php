@@ -7,6 +7,8 @@ namespace App\Security\Core\User;
 use App\Entity\User;
 use App\Exception\User\UserNotFoundException;
 use App\Repository\UserRepository;
+use Doctrine\ORM\Exception\ORMException;
+use Doctrine\ORM\OptimisticLockException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -39,7 +41,11 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
         return $this->loadUserByUsername($user->getUsername());
     }
 
-    public function upgradePassword(UserInterface $user, string $newHashedPassword): void
+    /**
+     * @throws OptimisticLockException
+     * @throws ORMException
+     */
+    public function upgradePassword(User $user, string $newHashedPassword): void
     {
         $user->setPassword($newHashedPassword);
 
