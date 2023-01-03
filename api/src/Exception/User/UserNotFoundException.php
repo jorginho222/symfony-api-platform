@@ -10,6 +10,10 @@ class UserNotFoundException extends NotFoundHttpException
 {
     private const MESSAGE = 'User with email %s not found';
 
+    public static function fromUserId(string $id): self
+    {
+        throw new self(\sprintf('User with ID %s not found', $id));
+    }
     public static function fromEmail(string $email): self
     {
         throw new self(\sprintf(self::MESSAGE, $email));
