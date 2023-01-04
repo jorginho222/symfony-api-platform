@@ -3,6 +3,7 @@
 namespace App\Api\Action\User;
 
 use App\Entity\User;
+use App\Service\Request\RequestService;
 use App\Service\User\ResetPasswordService;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
@@ -23,6 +24,10 @@ class ResetPassword
      */
     public function __invoke(Request $request): User
     {
-        return $this->resetPasswordService->reset($request);
+        $userId = RequestService::getField($request, 'userId');
+        $resetPasswordToken = RequestService::getField($request, 'resetPasswordToken');
+        $password = RequestService::getField($request, 'password');
+
+        return $this->resetPasswordService->reset($userId, $resetPasswordToken, $password);
     }
 }

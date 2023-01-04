@@ -2,6 +2,7 @@
 
 namespace App\Api\Action\User;
 
+use App\Service\Request\RequestService;
 use App\Service\User\ResendActivationEmailService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +18,9 @@ class ResendActivationEmail
 
     public function __invoke(Request $request): JsonResponse
     {
-        $this->activationEmailService->resend($request);
+        $email = RequestService::getField($request, 'email');
+
+        $this->activationEmailService->resend($email);
 
         return new JsonResponse(['message' => 'Activation email sent']);
     }
