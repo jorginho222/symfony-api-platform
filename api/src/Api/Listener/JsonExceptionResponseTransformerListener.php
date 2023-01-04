@@ -32,6 +32,4 @@ class JsonExceptionResponseTransformerListener
 
         return $response;
     }
-
-
 }

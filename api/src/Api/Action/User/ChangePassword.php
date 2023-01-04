@@ -26,6 +26,7 @@ class ChangePassword
     {
         $oldPassword = RequestService::getField($request, 'oldPassword');
         $newPassword = RequestService::getField($request, 'newPassword');
+
         return $this->changePasswordService->changePassword($user->getId(), $oldPassword, $newPassword);
     }
 }

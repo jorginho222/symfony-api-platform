@@ -21,6 +21,10 @@ security:
             pattern: ^/api/v1/users/resend_activation_email
             methods: [POST]
             security: false
+        activate_user:
+            pattern: ^/api/v1/users/{id}/activate
+            methods: [PUT]
+            security: false
         docs:
             pattern: ^/api/v1/docs
             methods: [GET]

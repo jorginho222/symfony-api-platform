@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Service\User;
+
 use App\Entity\User;
 use App\Exception\Password\PasswordException;
 use App\Repository\UserRepository;
 use App\Service\Password\EncoderService;
-use App\Service\Request\RequestService;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
-use Symfony\Component\HttpFoundation\Request;
 
 class ChangePasswordService
 {

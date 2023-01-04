@@ -7,8 +7,8 @@ namespace App\Repository;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Exception;
 use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\ORMException;
 use Doctrine\ORM\OptimisticLockException;
+use Doctrine\ORM\ORMException;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Persistence\Mapping\MappingException;
 use Doctrine\Persistence\ObjectManager;
@@ -78,6 +78,7 @@ abstract class BaseRepository
         if ($entityManager->isOpen()) {
             return $entityManager;
         }
+
         return $this->managerRegistry->resetManager();
     }
 

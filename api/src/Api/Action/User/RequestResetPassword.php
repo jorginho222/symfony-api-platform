@@ -29,6 +29,4 @@ class RequestResetPassword
 
         return new JsonResponse(['message' => 'Request reset password email sent']);
     }
-
-
 }

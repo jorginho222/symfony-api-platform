@@ -39,7 +39,6 @@ class RequestService
         }
 
         return null;
-
     }
 
     public static function arrayFlatter(array $array): array
