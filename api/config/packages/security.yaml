@@ -34,8 +34,8 @@ security:
             methods: [POST]
             security: false
         reset_password:
-            pattern: ^/api/v1/users/reset_password
-            methods: [ POST ]
+            pattern: ^/api/v1/users/
+            methods: [ PUT ]
             security: false
         login:
             pattern: /api/v1/users/login

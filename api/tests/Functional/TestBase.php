@@ -63,7 +63,7 @@ class TestBase extends WebTestCase
         ]);
     }
 
-    protected function getResponseData(Response $response): array
+    protected function getResponseData(\Symfony\Component\HttpFoundation\Response $response): array
     {
         return \json_decode($response->getContent(), true);
     }
@@ -79,7 +79,7 @@ class TestBase extends WebTestCase
      */
     protected function getPepeId()
     {
-        return $this->initDbConnection()->query('SELECT id FROM user WHERE email = "pepe@api.com"')->fetchFirstColumn();
+        return $this->initDbConnection()->query('SELECT id FROM user WHERE email = "pepe@api.com"')->fetchOne();
     }
 
     /**
@@ -88,6 +88,6 @@ class TestBase extends WebTestCase
      */
     protected function getCarlosId()
     {
-        return $this->initDbConnection()->query('SELECT id FROM user WHERE email = "carlos@api.com"')->fetchFirstColumn();
+        return $this->initDbConnection()->query('SELECT id FROM user WHERE email = "carlos@api.com"')->fetchOne();
     }
 }
