@@ -19,12 +19,19 @@ when@dev:
                                 binding_keys: [user_queue]
                         auto_setup: true
             routing:
-                # Route your messages to the transports
                 'App\Messenger\Message\UserRegisteredMessage': amqp_user
                 'App\Messenger\Message\RequestResetPasswordMessage': amqp_user
 
 when@test:
     framework:
         messenger:
+            serializer:
+                default_serializer: messenger.transport.symfony_serializer
+                symfony_serializer:
+                    format: json
+                    context: { }
             transports:
                 amqp_user: 'in-memory://'
+            routing:
+                'App\Messenger\Message\UserRegisteredMessage': amqp_user
+                'App\Messenger\Message\RequestResetPasswordMessage': amqp_user

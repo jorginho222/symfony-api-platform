@@ -79,7 +79,7 @@ class TestBase extends WebTestCase
      */
     protected function getPepeId()
     {
-        return $this->initDbConnection()->query('SELECT id FROM user WHERE email = "pepe@api.com"')->fetchOne();
+        return $this->initDbConnection()->query('SELECT * FROM user WHERE email = "carlos@api.com"')->fetch();
     }
 
     /**
@@ -88,6 +88,6 @@ class TestBase extends WebTestCase
      */
     protected function getCarlosId()
     {
-        return $this->initDbConnection()->query('SELECT id FROM user WHERE email = "carlos@api.com"')->fetchOne();
+        return $this->initDbConnection()->query('SELECT id FROM user WHERE email = "carlos@api.com"')->fetchFirstColumn();
     }
 }

@@ -8,16 +8,15 @@ class ResetPasswordActionTest extends UserTestBase
 {
     public function testResetPassword(): void
     {
-        $pepeId = $this->getPepeId();
+        $pepeId = $this->getPepeId()['id'];
 
         $payload = [
             'resetPasswordToken'=> '123456',
             'password' => 'new-password',
         ];
 
-        self::$pepe->request(
-            'PUT',
-            \sprintf('%s/02539fbe-b11c-404a-83ef-d7e0d361ab06/reset_password', $this->endpoint),
+        self::$pepe->request('PUT',
+            \sprintf('%s/%s/reset_password', $this->endpoint, $pepeId),
             [],
             [],
             [],
