@@ -8,6 +8,7 @@ use App\Messenger\Message\UserRegisteredMessage;
 use App\Messenger\RoutingKey;
 use App\Repository\UserRepository;
 use App\Service\Password\EncoderService;
+use Doctrine\ORM\Exception\ORMException;
 use Symfony\Component\Messenger\Bridge\Amqp\Transport\AmqpStamp;
 use Symfony\Component\Messenger\MessageBusInterface;
 
@@ -31,7 +32,7 @@ class UserRegisterService
 
         try {
             $this->userRepository->save($user);
-        } catch (\Exception $exception) {
+        } catch (ORMException $e) {
             throw UserAlreadyExistException::fromEmail($email);
         }
 
