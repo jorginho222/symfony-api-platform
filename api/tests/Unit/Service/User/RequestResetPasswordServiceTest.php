@@ -2,6 +2,7 @@
 
 namespace App\Tests\Unit\Service\User;
 
+use App\Entity\User;
 use App\Exception\User\UserNotFoundException;
 use App\Messenger\Message\UserRegisteredMessage;
 use App\Service\User\RequestResetPasswordService;
@@ -51,7 +52,7 @@ class RequestResetPasswordServiceTest extends UserServiceTestBase
             ->expects($this->exactly(1))
             ->method('findOneByEmailOrFail')
             ->with($email)
-            ->willReturn(new UserNotFoundException());
+            ->willThrowException(new UserNotFoundException());
 
         $this->expectException(UserNotFoundException::class);
 

@@ -11,6 +11,7 @@ App\Entity\User:
         groups: [user_post]
       openapi_context:
         summary: Register a new user
+
     resend_activation_email:
       method: POST
       path: /users/resend_activation_email
@@ -37,6 +38,7 @@ App\Entity\User:
                   properties:
                     message:
                       type: string
+
     login:
       method: POST
       route_name: api_login_check
@@ -62,6 +64,7 @@ App\Entity\User:
                   properties:
                     token:
                       type: string
+
     request_reset_password:
       method: POST
       path: /users/request_reset_password
@@ -88,6 +91,23 @@ App\Entity\User:
                   properties:
                     message:
                       type: string
+
+    upload_avatar:
+      method: POST
+      path: /users/{id}/avatar
+      controller: App\Api\Action\User\UploadAvatar
+      deserialize: false
+      openapi_context:
+          summary: Updates the user avatar
+          requestBody:
+              content:
+                multipart/form-data:
+                    schema:
+                        type: object
+                        properties:
+                            avatar:
+                                type: string
+                                format: binary
 
   itemOperations:
     get:
