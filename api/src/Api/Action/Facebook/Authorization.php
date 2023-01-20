@@ -4,6 +4,9 @@ namespace App\Api\Action\Facebook;
 
 use App\Service\Facebook\FacebookService;
 use App\Service\Request\RequestService;
+use Doctrine\ORM\Exception\ORMException;
+use Doctrine\ORM\OptimisticLockException;
+use Facebook\Exceptions\FacebookSDKException;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -16,6 +19,11 @@ class Authorization
         $this->facebookService = $facebookService;
     }
 
+    /**
+     * @throws ORMException
+     * @throws OptimisticLockException
+     * @throws FacebookSDKException
+     */
     public function __invoke(Request $request): JsonResponse
     {
         return new JsonResponse(
