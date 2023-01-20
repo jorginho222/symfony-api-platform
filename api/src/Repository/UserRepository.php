@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Repository;
@@ -20,6 +21,7 @@ class UserRepository extends BaseRepository
         if (null === $user = $this->objectRepository->find($id)) {
             throw UserNotFoundException::fromUserId($id);
         }
+
         return $user;
     }
 

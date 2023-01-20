@@ -22,6 +22,7 @@ class EncoderService
         if (self::MINIMUM_LENGTH > \strlen($password)) {
             throw PasswordException::invalidLength();
         }
+
         return $this->userPasswordHasher->hashPassword($user, $password);
     }
 
