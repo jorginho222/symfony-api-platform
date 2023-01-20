@@ -142,4 +142,9 @@ class User implements UserInterface
     {
         return $this->email;
     }
+
+    public function equals(User $user): bool
+    {
+        return $user->getId() === $this->id;
+    }
 }
