@@ -8,7 +8,7 @@ App\Entity\User:
       path: /users/register
       controller: App\Api\Action\User\Register
       denormalization_context:
-        groups: [user_post]
+        groups: [user_register]
       openapi_context:
         summary: Register a new user
 
@@ -138,8 +138,16 @@ App\Entity\User:
 
   itemOperations:
     get:
-      method: GET
-
+        method: GET
+        security: is_granted("USER_READ", object)
+    put:
+        method: PUT
+        security: is_granted("USER_UPDATE", object)
+        denormalization_context:
+            groups: [user_update]
+    delete:
+        method: DELETE
+        security: is_granted("USER_DELETE", object)
     activate:
       method: PUT
       path: /users/{id}/activate

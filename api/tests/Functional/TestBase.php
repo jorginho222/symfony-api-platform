@@ -79,7 +79,7 @@ class TestBase extends WebTestCase
      */
     protected function getPepeId()
     {
-        return $this->initDbConnection()->query('SELECT * FROM user WHERE email = "carlos@api.com"')->fetch();
+        return $this->initDbConnection()->query('SELECT * FROM user WHERE email = "pepe@api.com"')->fetchFirstColumn()[0];
     }
 
     /**
